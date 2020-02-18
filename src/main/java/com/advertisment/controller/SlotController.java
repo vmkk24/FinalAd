@@ -121,34 +121,5 @@ public class SlotController {
 		return ResponseEntity.ok().body(slotService.addSlot(addSlotRequestDto));
 	}
 
-	/**
-	 * 
-	 * @author Chethana.
-	 * @since 2020-02-17. This method is used to book a slot.
-	 * @param BookSlotRequestDto - having the details for booking
-	 * @return BookSlotResponseDto which has the statusCode and statusMessage.
-	 * @throws SlotNotFoundException it will throw the exception if the slot is not
-	 *                               there.
-	 * @throws UserNotFoundException it will throw the exception if the user is not
-	 *                               there.
-	 * 
-	 */
-	@PostMapping("/book")
-	public ResponseEntity<BookSlotResponseDto> bookSlot(@RequestBody BookSlotRequestDto bookSlotRequestDto)
-			throws SlotNotFoundException, UserNotFoundException {
-		log.info("Entering into bookSlot of SlotController");
-		BookSlotResponseDto bookSlotResponseDto = slotService.bookSlot(bookSlotRequestDto);
-		bookSlotResponseDto.setStatusCode(HttpStatus.OK.value());
-		bookSlotResponseDto.setStatusMessage("Success");
-		return new ResponseEntity<>(bookSlotResponseDto, HttpStatus.OK);
-	}
-	
-	@PostMapping("/bulkList")
-	public ResponseEntity<ResponseDto> bookSlots(@RequestBody BookSlotRequest bookSlotRequest) throws SlotNotFoundException {
-	log.info("Entering into bookSlot of SlotController");
-	ResponseDto bookSlotResponseDto= slotService.bookSlots(bookSlotRequest);
-	bookSlotResponseDto.setStatusMessage("Success");
-	return new ResponseEntity<>(bookSlotResponseDto,HttpStatus.OK);
-	}
 
 }
