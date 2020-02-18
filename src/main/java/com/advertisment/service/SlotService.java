@@ -25,8 +25,5 @@ public interface SlotService {
 	AddSlotResponseDto addSlot(AddSlotRequestDto addSlotRequestDto)
 			throws UserNotFoundException, PlanNotFoundException, SlotExisistException;
 
-	BookSlotResponseDto bookSlot(BookSlotRequestDto bookSlotRequestDto) throws SlotNotFoundException, UserNotFoundException;
-	
-	 ResponseDto bookSlots(BookSlotRequest bookSlotRequest) throws SlotNotFoundException;
 
 }
